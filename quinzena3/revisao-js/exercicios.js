@@ -218,12 +218,18 @@ return novaPessoa
 
 // EXERCÍCIO 16A
 function maioresDe18(arrayDePessoas) {
-
+const maioresDe18 = arrayDePessoas.filter((pessoa, index, array) => {
+  return pessoa.idade >= 18
+})
+return maioresDe18
 }
 
 // EXERCÍCIO 16B
 function menoresDe18(arrayDePessoas) {
-
+  const menoresDe18 = arrayDePessoas.filter((pessoa, index, array) => {
+    return pessoa.idade < 18
+  })
+  return menoresDe18
 }
 
 // EXERCÍCIO 17A
