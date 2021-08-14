@@ -22,7 +22,7 @@ function retornaNumerosParesElevadosADois(array) {
 function retornaNumerosPares(array) {
 let arrayPares = []
 
-for(i =0; i < array.length; i++){
+for(let i = 0; i < array.length; i++){
   if(array[i] % 2 === 0)
   arrayPares.push(array[i])
 }
@@ -42,18 +42,29 @@ return maiorNumero
 
 // EXERCÍCIO 05
 function retornaQuantidadeElementos(array) {
-  
+
+  return array.length
 }
+
 
 // EXERCÍCIO 06
 function retornaExpressoesBooleanas() {
+ 
 
 }
 
 // EXERCÍCIO 07
 function retornaNNumerosPares(n) {
+  const arrayPar = []
 
+  for(let i = 0; arrayPar.length < n; i++) {
+    if(i % 2 === 0) {
+    arrayPar.push(i)
+    }
+  }
+  return arrayPar
 }
+
 
 // EXERCÍCIO 08
 function checaTriangulo(a, b, c) {
