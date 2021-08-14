@@ -172,8 +172,7 @@ function filmeFavorito() {
 
 // EXERCÍCIO 13
 function imprimeChamada() {
-
-  let filme = {
+  const filme = {
     nome: "O Diabo Veste Prada",
     ano: 2006,
     diretor: "David Frankel",
@@ -181,21 +180,29 @@ function imprimeChamada() {
   }
 
   let atoresFrase = ""
-  for(i = 0; i < filme.atores.length; i++) {
+  for (let i = 0; i < filme.atores.length; i++) {
     if (i === filme.atores.length - 1) {
       atoresFrase += filme.atores[i]
     } else {
-      atores += filmes.atores[i] + ","
+      atoresFrase += filme.atores[i] + ", "
     }
   }
 
- return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estraldo por ${atoresFrase}`
+ return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${atoresFrase}.`
  
   // "Venha assistir ao filme NOME_DO_FILME, de ANO, dirigido por DIRECAO e estrelado por ELENCO."
 }
 
 // EXERCÍCIO 14
 function criaRetangulo(lado1, lado2) {
+  const retangulo = {
+    largura: lado1,
+    altura: lado2,
+    perimetro: 2 * (lado1 + lado2),
+    area: lado1 * lado2
+  }
+
+  return retangulo
 
 }
 
