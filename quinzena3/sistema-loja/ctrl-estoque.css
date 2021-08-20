@@ -5,12 +5,34 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.menu {
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 30px;
+    background-color:darksalmon;
+    width:max-content;
+    padding: 20px;
+}
+
 table {
     border: 4px solid black;
 }
 
 #colunas {
-    font-size: 20px;
+    font-size: 25px;
+    color:red;
+    border: 100px;
+}
+
+#preco {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#quantidade {
+    padding-right: 50px;
 }
 
 .Funko {
@@ -51,5 +73,9 @@ table {
 
 
 .quantidade {
+    padding-left: 100px;
+}
+
+.preco {
     padding-left: 100px;
 }
