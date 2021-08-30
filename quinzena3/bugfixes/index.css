@@ -133,8 +133,10 @@ td button {
     height: 20px;
     border: 1px solid black;
     border-radius: 5px;
-    font-size: 10px;
+    font-size: 12px;
     color: black;
+    margin: 150px;
+    margin-left: 50%;
 }
 
 #back-button:hover {
