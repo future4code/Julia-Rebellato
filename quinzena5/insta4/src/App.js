@@ -18,7 +18,17 @@ class App extends React.Component {
         <Post
           nomeUsuario={'paulinha'}
           fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
+          fotoPost={'https://picsum.photos/200/159'}
+        />
+        <Post
+          nomeUsuario={'sophia'}
+          fotoUsuario={'https://picsum.photos/50/83'}
+          fotoPost={'https://picsum.photos/200/155'}
+        />
+         <Post
+          nomeUsuario={'sophia'}
+          fotoUsuario={'https://picsum.photos/50/57'}
+          fotoPost={'https://picsum.photos/200/154'}
         />
       </MainContainer>
     );
@@ -29,11 +39,11 @@ class App extends React.Component {
 //   render() {
 //     return (
 //       <MainContainer>
-//         <Post2
-//           nomeUsuario2={'laura'}
-//           fotoUsuario2={'https://picsum.photos/50/51'}
-//           fotoPost2={'https://picsum.photos/200/152'}
-//         />
+        // <Post2
+        //   nomeUsuario2={'laura'}
+        //   fotoUsuario2={'https://picsum.photos/50/51'}
+        //   fotoPost2={'https://picsum.photos/200/152'}
+        // />
 //       </MainContainer>
 //     );
 //   }
@@ -43,11 +53,11 @@ class App extends React.Component {
 //   render() {
 //     return (
 //       <MainContainer>
-//         <Post3
-//           nomeUsuario={'sophia'}
-//           fotoUsuario={'https://picsum.photos/50/57'}
-//           fotoPost={'https://picsum.photos/200/154'}
-//         />
+        // <Post3
+        //   nomeUsuario={'sophia'}
+        //   fotoUsuario={'https://picsum.photos/50/57'}
+        //   fotoPost={'https://picsum.photos/200/154'}
+        // />
 //       </MainContainer>
 //     );
 //   }
