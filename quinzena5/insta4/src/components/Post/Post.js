@@ -43,13 +43,24 @@ const PostPhoto = styled.img`
 class Post extends React.Component {
   state = {
     curtido: false,
-    numeroCurtidas: 4,
+    numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 4
+    numeroComentarios: 0
   }
 
   onClickCurtida = () => {
-    console.log('Curtiu!')
+    let novoNumeroCurtidas
+
+    if(this.state.curtido) {
+      novoNumeroCurtidas = this.state.numeroCurtidas - 1
+    } else {
+      novoNumeroCurtidas = this.state.numeroCurtidas + 1
+    }
+
+    this.setState({
+      curtido: !this.state.curtido,
+      numeroCurtidas: novoNumeroCurtidas
+    })
   }
 
   onClickComentario = () => {
@@ -115,3 +126,11 @@ export default Post
 // o IconeComContador representa o número de curtidas e comentários no post.
 
 // as 4 propriedades são utilizadas na class Post.
+
+// quando eu mudo o valor inicial, o número de curtidas e comentários no post altera para o número que eu inseri.
+
+// a função onClickCurtida aparece no console.
+
+// a função onClickComentario altera a quantidade de comentários no post, não no console.
+
+// clicando no botao de comentário, é aberto um input para que o comentário seja escrito.

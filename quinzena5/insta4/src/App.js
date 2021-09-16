@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
 import Post from './components/Post/Post';
-// import Post2 from './components/Post2/Post2'
-// import Post3 from './components/Post3/Post3'
 
 const MainContainer = styled.div`
   display: flex;
@@ -21,7 +19,7 @@ class App extends React.Component {
           fotoPost={'https://picsum.photos/200/159'}
         />
         <Post
-          nomeUsuario={'sophia'}
+          nomeUsuario={'laura'}
           fotoUsuario={'https://picsum.photos/50/83'}
           fotoPost={'https://picsum.photos/200/155'}
         />
@@ -34,34 +32,6 @@ class App extends React.Component {
     );
   }
 }
-
-// class Insta extends React.Component {
-//   render() {
-//     return (
-//       <MainContainer>
-        // <Post2
-        //   nomeUsuario2={'laura'}
-        //   fotoUsuario2={'https://picsum.photos/50/51'}
-        //   fotoPost2={'https://picsum.photos/200/152'}
-        // />
-//       </MainContainer>
-//     );
-//   }
-// }
-
-// class Instagram extends React.Component {
-//   render() {
-//     return (
-//       <MainContainer>
-        // <Post3
-        //   nomeUsuario={'sophia'}
-        //   fotoUsuario={'https://picsum.photos/50/57'}
-        //   fotoPost={'https://picsum.photos/200/154'}
-        // />
-//       </MainContainer>
-//     );
-//   }
-// }
 
 export default App; 
 
