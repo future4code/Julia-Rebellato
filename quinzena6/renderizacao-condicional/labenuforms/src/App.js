@@ -65,9 +65,6 @@ class App extends React.Component {
     <Container>
       {this.renderizaEtapa()}
       {button}
-    
-      
-    
     </Container> 
     )
     }
