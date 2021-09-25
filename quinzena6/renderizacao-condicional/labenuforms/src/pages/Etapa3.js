@@ -4,8 +4,8 @@ import React from "react";
 import styled from "styled-components";
 
 const ContainerEtapa3 = styled.div `
-height: auto;
-margin: auto;
+  height: auto;
+  margin: auto;
 `
 
 const TituloEtapa3 = styled.h1 `
@@ -14,21 +14,24 @@ const TituloEtapa3 = styled.h1 `
     justify-content: center;
     align-items: center;
     margin: 20px;
+    font-size: 22px;
 `
 
 const FormularioEtapa3 = styled.form `
-color: black;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 20px;
-font-size: 20px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-size: 16px;
 `
 
 const CursosOpcoes = styled.select `
-margin-bottom: 50px;
-cursor: pointer;
+  margin-bottom: 50px;
+  cursor: pointer;
+  padding: 3px;
+  font-size: 14px;
 `
 
 
@@ -39,7 +42,7 @@ export default class Etapa3 extends React.Component {
       <TituloEtapa3> ETAPA 3 - INFORMAÇÕES GERAIS DE ENSINO </TituloEtapa3>
       <FormularioEtapa3>
             5. Por que você não terminou um curso de graduação? <br /> <br />
-            <input type="text" name="curso"></input> <br />
+            <input placeholder="Digite aqui" type="text" name="curso"></input> <br />
             6. Você fez algum curso complementar? <br /> <br />
             <CursosOpcoes>
             <option value="ensino-medio-incompleto">Nenhum</option>

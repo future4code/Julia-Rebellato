@@ -13,6 +13,7 @@ const TituloFinal = styled.h1 `
     justify-content: center;
     align-items: center;
     margin: 20px;
+    font-size: 22px;
 `
 
 const Agradecimentos = styled.div `
@@ -21,6 +22,7 @@ const Agradecimentos = styled.div `
     justify-content: center;
     align-items: center;
     margin: 20px;
+    font-size: 16px;
 `
 
 export default class Final extends React.Component {
