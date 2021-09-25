@@ -20,13 +20,18 @@ margin: auto;
 cursor: pointer;
 `
 
-function App() {
-  return (
+export default class App extends React.Component {
+  render () {
+    return (
     <Container>
       <Etapa1 />
+      <Etapa2 />
+      <Etapa3 />
       <ProximaEtapa>Próxima etapa</ProximaEtapa>
+      <Final />
     </Container>
-  );
+    )
+    }
 }
 
-export default App;
+

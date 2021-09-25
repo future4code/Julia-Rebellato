@@ -3,6 +3,10 @@
 import React from "react";
 import styled from "styled-components";
 
+const ContainerEtapa1 = styled.div `
+width: 100vw;
+`
+
 const Titulo = styled.h1 `
     color: black;
     display: flex;
@@ -11,7 +15,7 @@ const Titulo = styled.h1 `
     margin: 20px;
 `
 
-const Formulario = styled.form `
+const FormularioEtapa1 = styled.form `
 color: black;
 display: flex;
 flex-direction: column;
@@ -39,16 +43,16 @@ cursor: pointer;
 
 function Etapa1() {
     return (
-      <div>
+      <ContainerEtapa1>
           <Titulo> ETAPA 1 - DADOS GERAIS </Titulo>
-          <Formulario>
+          <FormularioEtapa1>
                 1. Qual o seu nome? <br /> <br />
                 <input type="text" name="nome"></input> <br />
                 2. Qual a sua idade? <br /> <br />
                 <input type="number" name="idade"></input> <br />
                 3. Qual o seu email? <br /> <br />
                 <input type="text" name="email"></input>
-          </Formulario>
+          </FormularioEtapa1>
           <Escolaridade>
               <NivelEscolaridade> Nível de Escolaridade </NivelEscolaridade>
         <EscolaridadeOpcoes>
@@ -58,7 +62,7 @@ function Etapa1() {
             <option value="superior-completo">Ensino Superior Completo</option>
         </EscolaridadeOpcoes>
         </Escolaridade>
-      </div>
+      </ContainerEtapa1>
     );
   }
   
