@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Pagina1 from "./Components/Pagina1";
-import Pagina2 from "./Components/Pagina2";
+import Pagina1 from "./Components/Pagina1/Pagina1";
+import Pagina2 from "./Components/Pagina2/Pagina2";
 
 const ContainerPrincipal = styled.div`
 width: 100vw;
