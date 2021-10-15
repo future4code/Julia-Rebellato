@@ -13,7 +13,7 @@ justify-content: center;
 align-items: center;
 `
 
-const ListaComBotao = styled.div `
+const ContainerLista = styled.div `
 display: flex;
 justify-content: center;
 align-items: center;
@@ -22,21 +22,20 @@ padding: 0 10px;
 font-size: 20px;
 `
 
-const Lista = styled.li `
-max-width: max-content;
-padding: 5px;
-border-radius: 5px;
-background-color: salmon;
-color: black;
-:hover {
-background-color: lightpink;
-}
+const ListaComBotao = styled.ul `
+border: 1px solid black;
+border-start-end-radius: 5px;
+border-end-start-radius: 5px;
+display: flex;
+justify-content:space-between;
+text-align: center;
+align-items:center;
+margin:10px;
+padding:10px;
+width: 300px;
 `
 
-const BotaoDeletar = styled.button `
-margin: 10px 20px;
-font-size: 16px;
-`
+
 
 const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
 
@@ -65,27 +64,16 @@ componentDidMount() {
     }
   }
 
-  deletarUsuario = (id) => {
-  axios
-  .delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, headers)
-  .then(res => {
-    console.log(res)
-    alert("Usuário apagado com sucesso!")
-    this.pegarListaUsuarios();
-  })
-  .catch((err) => {
-    alert("Náo foi possível apagar esse usuário!");
-    console.log(err);
-  })
-
+  
     
   
-}
+
        
     render() {
       const listaNomesUsuarios = this.state.listaUsuarios.map((usuario) => {
-        return <ListaComBotao><Lista key={usuario.id}>{usuario.name}</Lista>
-        <BotaoDeletar onClick={() => this.deletarUsuario(this.pegarListaUsuarios.id)}> Deletar </BotaoDeletar></ListaComBotao>
+        return <ContainerLista><ListaComBotao><ul key={usuario.id}>{usuario.name}</ul>
+        </ListaComBotao>
+        </ContainerLista>
       });
         return (
     <ContainerPrincipal>
