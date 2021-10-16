@@ -1,3 +1,4 @@
+
 // Montando o jogo 🎰
 console.log("Bem-vindo ao jogo de Blackjack!")
 
@@ -60,4 +61,3 @@ console.log("Você perdeu!")
  * 
  * 
  * 
- */
