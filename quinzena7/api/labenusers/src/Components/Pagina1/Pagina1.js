@@ -22,6 +22,15 @@ gap: 10px;
 const BotaoCriar = styled.button `
 width: auto;
 `
+
+const BotaoIrParaListas = styled.button `
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+margin: auto;
+font-size:  16px;
+`
 // const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
 
 // const headers = {
@@ -45,13 +54,14 @@ export default class Pagina1 extends React.Component {
     }
 
   criarUsuario = () => {
+    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
     const body = {
       name: this.state.nomeUsuario,
       email: this.state.emailUsuario
     };
 
     axios
-    .post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", body, {
+    .post(url, body, {
       headers: {
           Authorization: "julia-rebellato-banu"
       }
@@ -62,16 +72,17 @@ export default class Pagina1 extends React.Component {
       this.setState({nomeUsuario: "", emailUsuario: ""})
     })
     .catch((err) => {
+      console.log(err.response.data.message)
       alert("Erro: usuário não pode ser criado 😔")
     }
     )};
 
-    
-    
+   
 
     render () {
         return (
     <ContainerPrincipal>
+      <BotaoIrParaListas onClick={this.props.irParaLista}>Listas</BotaoIrParaListas>
       <CriarUsuario>Criar Usuário</CriarUsuario>
       <ContainerInputs>
       <input

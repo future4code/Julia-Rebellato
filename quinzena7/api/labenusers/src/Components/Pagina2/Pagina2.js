@@ -24,8 +24,6 @@ font-size: 20px;
 
 const ListaComBotao = styled.ul `
 border: 1px solid black;
-border-start-end-radius: 5px;
-border-end-start-radius: 5px;
 display: flex;
 justify-content:space-between;
 text-align: center;
@@ -35,7 +33,21 @@ padding:10px;
 width: 300px;
 `
 
+const BotaoIrParaCadastro = styled.button `
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+margin: auto;
+font-size: 16px;
+`
 
+const BotaoX = styled.button `
+cursor: pointer;
+:hover {
+  color: red;
+}
+`
 
 const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
 
@@ -54,32 +66,50 @@ componentDidMount() {
     this.pegarListaUsuarios();
   }
 
-  pegarListaUsuarios = async () => {
-    try {
-      const response = await axios.get(url, headers)
-      console.log(response.data)
-      this.setState({listaUsuarios: response.data})
-    } catch(error) {
-      console.log(error)
-    }
+  pegarListaUsuarios = () => {
+      axios
+      .get(url, headers)
+      .then((res) => {
+        console.log(res)
+        this.setState({listaUsuarios: res.data})
+      })
+      .catch((err) => {
+        console.log(err)
+        alert("Ocorreu um problema. Tente novamente!")
+      })
   }
 
-  
-    
+  deletarUsuario = (id) => {
+    const urlDelete = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`
+      axios
+      .delete(urlDelete, headers)
+      .then((res) => {
+        console.log(res)
+        alert("Usuário deletado com sucesso!")
+        this.pegarListaUsuarios()
+      })
+      .catch((err) => {
+        console.log(err.response.data)
+        alert("Opa! Alguma coisa deu errado. O usuário não pode ser deletado ☹️")
+      })
+  }
   
 
        
     render() {
       const listaNomesUsuarios = this.state.listaUsuarios.map((usuario) => {
-        return <ContainerLista><ListaComBotao><ul key={usuario.id}>{usuario.name}</ul>
+        return <ContainerLista>
+        <ListaComBotao key={usuario.id}>
+          {usuario.name}
+          <BotaoX onClick={() => this.deletarUsuario(usuario.id)} >X</BotaoX>
         </ListaComBotao>
         </ContainerLista>
       });
         return (
     <ContainerPrincipal>
+      <BotaoIrParaCadastro onClick={this.props.irParaCadastro}>Página inicial</BotaoIrParaCadastro>
       <ListaUsuarios>Lista de Usuários</ListaUsuarios>
-       <ul>{listaNomesUsuarios}</ul>
-       
+       {listaNomesUsuarios}
     </ContainerPrincipal>
         )
     }
