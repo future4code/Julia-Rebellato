@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2, p {
+    padding: 8px;
+}
+
+
+header {
+    background-color: orange;
+    /* height: 80px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+
+h2 {
+    margin-left: 5px;
+    font-family: 'Times New Roman';
+    font-size: 30px;;
+}
+
+#busca {
+    border: none;
+    width: 200px;
+    margin-right: 40px;
+}
+
+#textoBusca {
+    float: left;
+    padding-left: 15px;
+    font-size: 18px;
+    border: none;
+    height: 32px;
+    width: 200px;
+}
+
+/* main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px;
+} */
+
+.video {
+    position: relative;
+    top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+    /* display: grid;
+    align-items: center;
+    grid-column: 2/4;
+    grid-row: 1; */
+    /* flex-direction: column;
+    justify-content: space-between; */
+    /* align-items: center;
+    text-align: left; */
+}
+
+/* .media {
+    width: 50%;
+} */
+
+button {
+    padding: 10px;
+    margin: 10px;
+}
+
+footer {
+    background-color: orange;
+    /* height: 60px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

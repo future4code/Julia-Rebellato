@@ -1,0 +1,81 @@
+#nome-da-loja {
+    color: salmon;
+    /* text-align: center; */
+    font-size: 200%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.menu {
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 30px;
+    background-color:darksalmon;
+    width:max-content;
+    padding: 20px;
+}
+
+table {
+    border: 4px solid black;
+}
+
+#colunas {
+    font-size: 25px;
+    color:red;
+    border: 100px;
+}
+
+#preco {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#quantidade {
+    padding-right: 50px;
+}
+
+.Funko {
+    font-size: 24px;
+}
+
+#hp-e-voldemort {
+    width: 200px;
+}
+
+#mapa-do-maroto {
+    width: 200px;
+}
+
+#hermione {
+    width: 200px;
+}
+
+#rony {
+    width: 200px;
+}
+
+#sirius {
+    width: 200px;
+}
+
+#gina {
+    width: 200px;
+}
+
+#dobby {
+    width: 200px;
+}
+
+.descricao {
+    padding-left: 50px;
+}
+
+
+.quantidade {
+    padding-left: 100px;
+}
+
+.preco {
+    padding-left: 100px;
+}
