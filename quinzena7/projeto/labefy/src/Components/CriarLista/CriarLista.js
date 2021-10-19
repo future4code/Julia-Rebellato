@@ -9,24 +9,26 @@ margin-left: -8px;
 margin-right: -8px;
 margin-top: -8px;
 padding: 0;
-background-color: black;;
+background-color: black;
 `
+
 const Header = styled.div `
 display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  width: 98, 5vw;
-  height: 15vh;
+justify-content: flex-start;
+align-items: center;
+width: 100vw;
+height: 15vh;
+border-bottom: 1px solid pink;
+
 `
 
 const ContainerCriarPlaylist = styled.div `
 color: #32bea6;
 min-height: 75vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
 `
 
 const Titulo = styled.h1 `
@@ -37,11 +39,14 @@ font-family: "Amatic SC";
 `
 
 const Input = styled.input `
- border-bottom: 1px solid pink;
+border-bottom: 1px solid pink;
 width: 300px;
 height: 30px;
 margin: 30px;
 margin-bottom: 0;
+border-radius: 24px;
+padding: 8px;
+font-size: 16px;
 `
 
 const Footer = styled.footer`
@@ -52,6 +57,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 border-top: 1px solid pink;
+margin-bottom: -8px;
 `
 
 const Imagem = styled.img`
@@ -62,18 +68,28 @@ width: 90px;
 const BotaoCriar = styled.button `
 margin-top: 10px;
 margin-bottom: 20px;
-padding: 5px;
-font-size: 16px;
+padding: 8px;
+font-size: 18px;
 cursor: pointer;
+border-radius: 24px;
+padding: 12px;
+:hover {
+    background-color: #3AD5A1;
+}
 `
 
 const BotaoMinhasPlaylists = styled.button `
-font-size: 16px;
+font-size: 18px;
 cursor: pointer;
 padding: 5px;
 display: flex;
 justify-content: center;
 align-items: center;
+border-radius: 24px;
+padding: 12px;
+:hover {
+    background-color: #3AD5A1;
+}
 `
 
 export default class CriarLista extends React.Component {
