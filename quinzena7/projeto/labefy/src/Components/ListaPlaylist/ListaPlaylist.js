@@ -5,46 +5,56 @@ import Swal from "sweetalert2";
 
 const ContainerPlaylist = styled.div `
 display: flex;
+justify-content: space-between;
 align-items: center;
-justify-content: center;
-`
-
-const CardPlaylist = styled.div `
-  border: 1px solid black;
+border: 1px solid black;
   padding: 10px;
   margin: 10px;
   width: 400px;
+`
+
+const CardPlaylist = styled.div `
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: left;
 `
 const BotaoDetalhes = styled.button `
 font-size: 14px;
-display: flex;
-align-items: right;
-margin-left: 50px;
+cursor: pointer;
 `
 
 const BotaoDeletar = styled.button `
 font-size: 14px;
-display: flex;
-align-items: right;
-margin-right: 10px;
+cursor: pointer;
 `
 
 const ContainerPrincipal = styled.div `
 min-height: 100vh;
 display: flex;
 flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+`
+
+const Botoes = styled.div `
+display: flex;
+justify-content: flex-end;
+align-items: center;
+gap: 10px;
+`
+
+const BotaoPaginaInicial = styled.button `
+font-size: 16px;
+cursor: pointer;
+padding: 5px;
+display: flex;
 justify-content: center;
 align-items: center;
 `
 
-
-
 export default class ListaPlaylist extends React.Component {
     state = {
-      playlist: []
+      playlists: []
     }
 
     componentDidMount() {
@@ -59,7 +69,7 @@ export default class ListaPlaylist extends React.Component {
         }
       })
       .then((res) => {
-        this.setState({playlist: res.data.result.list})
+        this.setState({playlists: res.data.result.list})
       })
       .catch((err) => {
         console.log(err)
@@ -94,14 +104,16 @@ export default class ListaPlaylist extends React.Component {
     }}
 
     render() {
-      const listaCardPlaylist = this.state.playlist.map((playlists) => {
+      const listaCardPlaylist = this.state.playlists.map((playlist) => {
         return (
           <ContainerPlaylist>
-            <CardPlaylist key={playlists.id}>
-                {playlists.name}
+            <CardPlaylist key={playlist.id}>
+                {playlist.name}
+              </CardPlaylist>
+              <Botoes>
                 <BotaoDetalhes onClick={this.props.irParaDetalhes}>Detalhes</BotaoDetalhes>
-                <BotaoDeletar onClick={() => this.deletarPlaylist(playlists.id)}>Deletar</BotaoDeletar>
-            </CardPlaylist>
+                <BotaoDeletar onClick={() => this.deletarPlaylist(playlist.id)}>Deletar</BotaoDeletar>
+              </Botoes>
             </ContainerPlaylist>
         )
     })
@@ -114,7 +126,7 @@ export default class ListaPlaylist extends React.Component {
         <h1>Minhas Playlists</h1>
         {listaCardPlaylist}
         
-        <button onClick={this.props.irParaCriarLista}>Página inicial</button>
+        <BotaoPaginaInicial onClick={this.props.irParaCriarLista}>Página inicial</BotaoPaginaInicial>
       </ContainerPrincipal>
     )}
 }

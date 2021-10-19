@@ -41,6 +41,7 @@ const Input = styled.input `
 width: 300px;
 height: 30px;
 margin: 30px;
+margin-bottom: 0;
 `
 
 const Footer = styled.footer`
@@ -59,7 +60,20 @@ width: 90px;
 `
 
 const BotaoCriar = styled.button `
-margin: 30px;
+margin-top: 10px;
+margin-bottom: 20px;
+padding: 5px;
+font-size: 16px;
+cursor: pointer;
+`
+
+const BotaoMinhasPlaylists = styled.button `
+font-size: 16px;
+cursor: pointer;
+padding: 5px;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 export default class CriarLista extends React.Component {
@@ -116,7 +130,7 @@ export default class CriarLista extends React.Component {
                 onChange={this.onChangeNome}
                 />
                 <BotaoCriar onClick={this.criarPlaylist}>Criar</BotaoCriar>
-                <button onClick={this.props.irParaListas}>Minhas playlists</button>
+                <BotaoMinhasPlaylists onClick={this.props.irParaListas}>Minhas playlists</BotaoMinhasPlaylists>
                 </ContainerCriarPlaylist>
                 <Footer>
                     Labefy criado por Julia Rebellato
