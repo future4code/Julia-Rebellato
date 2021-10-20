@@ -13,41 +13,34 @@ align-items: center;
 justify-content: center;
 `
 
-const BotaoPágina = styled.button`
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-margin: auto;
-`
-
 export default class App extends React.Component {
   state = {
-    pagina: 1,
+    pagina: "cadastro"
   }
 
   renderizaPagina = () => {
     switch (this.state.pagina) {
-      case 1: 
-        return <Pagina1 />;
-      case 2: 
-        return <Pagina2 />;
-}
+      case "cadastro": 
+        return <Pagina1 irParaLista={this.irParaLista}/>;
+      case "lista":
+        return <Pagina2 irParaCadastro={this.irParaCadastro}/>;
+        default: 
+        return <div>Erro! Página não encontrada ☹️</div>
+  }
 }
 
-irParaProximaPagina  = () => {
-  if(this.state.pagina === 1){
-    this.setState( {pagina: 2});
-  }else if(this.state.pagina === 2) {
-    this.setState({pagina: 1})
+irParaCadastro  = () => {
+  this.setState({pagina: "cadastro"})
 }
+
+irParaLista  = () => {
+  this.setState({pagina: "lista"})
 }
 
   render () {
     return (
       <ContainerPrincipal>
         <Titulo>Labenusers</Titulo>
-        <BotaoPágina onClick={this.irParaProximaPagina} >Trocar de Página</BotaoPágina>
         {this.renderizaPagina()}
       </ContainerPrincipal>
     )

@@ -13,7 +13,7 @@ justify-content: center;
 align-items: center;
 `
 
-const ListaComBotao = styled.div `
+const ContainerLista = styled.div `
 display: flex;
 justify-content: center;
 align-items: center;
@@ -22,20 +22,31 @@ padding: 0 10px;
 font-size: 20px;
 `
 
-const Lista = styled.li `
-max-width: max-content;
-padding: 5px;
-border-radius: 5px;
-background-color: salmon;
-color: black;
-:hover {
-background-color: lightpink;
-}
+const ListaComBotao = styled.ul `
+border: 1px solid black;
+display: flex;
+justify-content:space-between;
+text-align: center;
+align-items:center;
+margin:10px;
+padding:10px;
+width: 300px;
 `
 
-const BotaoDeletar = styled.button `
-margin: 10px 20px;
+const BotaoIrParaCadastro = styled.button `
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+margin: auto;
 font-size: 16px;
+`
+
+const BotaoX = styled.button `
+cursor: pointer;
+:hover {
+  color: red;
+}
 `
 
 const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
@@ -55,43 +66,50 @@ componentDidMount() {
     this.pegarListaUsuarios();
   }
 
-  pegarListaUsuarios = async () => {
-    try {
-      const response = await axios.get(url, headers)
-      console.log(response.data)
-      this.setState({listaUsuarios: response.data})
-    } catch(error) {
-      console.log(error)
-    }
+  pegarListaUsuarios = () => {
+      axios
+      .get(url, headers)
+      .then((res) => {
+        console.log(res)
+        this.setState({listaUsuarios: res.data})
+      })
+      .catch((err) => {
+        console.log(err)
+        alert("Ocorreu um problema. Tente novamente!")
+      })
   }
 
   deletarUsuario = (id) => {
-  axios
-  .delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, headers)
-  .then(res => {
-    console.log(res)
-    alert("Usuário apagado com sucesso!")
-    this.pegarListaUsuarios();
-  })
-  .catch((err) => {
-    alert("Náo foi possível apagar esse usuário!");
-    console.log(err);
-  })
-
-    
+    const urlDelete = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`
+      axios
+      .delete(urlDelete, headers)
+      .then((res) => {
+        console.log(res)
+        alert("Usuário deletado com sucesso!")
+        this.pegarListaUsuarios()
+      })
+      .catch((err) => {
+        console.log(err.response.data)
+        alert("Opa! Alguma coisa deu errado. O usuário não pode ser deletado ☹️")
+      })
+  }
   
-}
+
        
     render() {
       const listaNomesUsuarios = this.state.listaUsuarios.map((usuario) => {
-        return <ListaComBotao><Lista key={usuario.id}>{usuario.name}</Lista>
-        <BotaoDeletar onClick={() => this.deletarUsuario(this.pegarListaUsuarios.id)}> Deletar </BotaoDeletar></ListaComBotao>
+        return <ContainerLista>
+        <ListaComBotao key={usuario.id}>
+          {usuario.name}
+          <BotaoX onClick={() => this.deletarUsuario(usuario.id)} >X</BotaoX>
+        </ListaComBotao>
+        </ContainerLista>
       });
         return (
     <ContainerPrincipal>
+      <BotaoIrParaCadastro onClick={this.props.irParaCadastro}>Página inicial</BotaoIrParaCadastro>
       <ListaUsuarios>Lista de Usuários</ListaUsuarios>
-       <ul>{listaNomesUsuarios}</ul>
-       
+       {listaNomesUsuarios}
     </ContainerPrincipal>
         )
     }
