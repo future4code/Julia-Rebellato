@@ -1,43 +1,56 @@
+import axios from "axios";
 import React from "react";
-import styled from "styled-components";
+import { useState, useEffect } from "react/cjs/react.development";
+import { BASE_URL } from "../../Constants/BaseURL";
+import {
+    PageContainer,
+    CandidateContainer,
+    ListItem,
+    Avatar
+} from './styles'
 
-const DivTotal = styled.div`
-`
-
-const ContainerPrincipal = styled.div`
-display: flex;
-justify-content: center;
-`
-const ContainerMatches = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-border: 1px solid black;
-height: 70vh;
-width: 60vh;
-margin-top: 45px;
-`
-
-const BotaoPaginaInicial = styled.button`
-margin: 10px;
-margin-left: 20px;
-`
-
-const BotaoLimparMatches = styled.button`
-`
 
 export const Matches = (props) => {
+
+    const [matches, setMatches] = useState([]);
+
+    const getMatches = () => {
+        const URL = `${BASE_URL}/matches`
+
+        axios
+        .get(URL)
+        .then((res) => {
+            setMatches(res.data.matches)
+        })
+        .catch((err) => {
+            console.log(err.response)
+        })
+
+    }
+    
+    const MapMatches = () => {
+        const list = matches.map((match) => {
+            return(
+                <ListItem>
+                    <Avatar src={match.photo} />
+                    <h4> {match.name} </h4>
+                </ListItem>
+            )
+        })
+        return list
+    }
+
+    useEffect(() => {
+        getMatches()
+    }, [])
+
+
     return (
-        <DivTotal>
-        <ContainerPrincipal>
-        <ContainerMatches>
-                <p>Oi</p>
-        </ContainerMatches>
-    </ContainerPrincipal>
-    <BotaoPaginaInicial onClick={() => props.irParaTelaInicial()} >Ir para página inicial</BotaoPaginaInicial>
-    <BotaoLimparMatches>Limpar matches</BotaoLimparMatches>
-    </DivTotal>
+        <PageContainer>
+            <CandidateContainer>
+                { matches.length ? <MapMatches/> : <p> Continue tentando </p>}
+            </CandidateContainer>
+    </PageContainer>
     )
 }
 
