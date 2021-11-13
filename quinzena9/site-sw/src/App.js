@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { CharacterDetailPage } from "./pages/CharacterDetailPage/CharacterDetailPage";
+import CharacterDetailPage from "./pages/CharacterDetailPage/CharacterDetailPage";
 import  CharacterListPage  from "./pages/CharacterListPage/CharacterListPage";
 
 export default function App() {
@@ -16,7 +16,6 @@ export default function App() {
   function goToListPage () {
     setCurrentPage("list")
   }
-
 
   function selectPage() {
       if (currentPage === "list") {

@@ -9,7 +9,6 @@ function CharacterListPage(props) {
 
     const [characterList, setCharacterList] = useState([])
 
-
     function getCharacterList() {
         axios
           .get(`${BASE_URL}/people/`)
